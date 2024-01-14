@@ -1,0 +1,46 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>12.0</LangVersion>
+	<TargetFrameworks>net462;netstandard2.0;netstandard2.1;net6.0;net7.0;net8.0</TargetFrameworks>
+    <PackageDescription>Some extensions method for ServiceCollection, that not include in official Microsoft.Extensions.DependencyInjection package.</PackageDescription>
+    <Authors>Selectorsvt</Authors>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Selectorsvt/Unofficial.Microsoft.Extensions.DependencyInjection</RepositoryUrl>
+	<PackageOutputPath>.\nupkg</PackageOutputPath>
+  </PropertyGroup>
+
+	<PropertyGroup>
+		<Nullable>enable</Nullable>
+		<WarningsAsErrors>nullable; NU1605;</WarningsAsErrors>
+		<NoWarn></NoWarn>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(CodeAnalysisRuleSet)' == ''">
+		<_DirectoryCodeAnalysisRuleSet Condition="'$(_DirectoryCodeAnalysisRuleSet)' == ''">StyleCop.ruleset</_DirectoryCodeAnalysisRuleSet>
+		<_DirectoryCodeAnalysisRuleSetBasePath Condition="'$(_DirectoryCodeAnalysisRuleSetBasePath)' == ''">$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), '$(_DirectoryCodeAnalysisRuleSet)'))</_DirectoryCodeAnalysisRuleSetBasePath>
+		<CodeAnalysisRuleSet Condition="'$(_DirectoryCodeAnalysisRuleSetBasePath)' != '' and '$(_DirectoryCodeAnalysisRuleSet)' != ''">$([System.IO.Path]::Combine('$(_DirectoryCodeAnalysisRuleSetBasePath)', '$(_DirectoryCodeAnalysisRuleSet)'))</CodeAnalysisRuleSet>
+	</PropertyGroup>
+
+
+	<!-- Code Analysis -->
+	<PropertyGroup>
+		<!-- 
+      Enable Microsoft.CodeAnalysis.NetAnalyzers.
+      This Analyzers is enabled by default if the app is targeting net5.0.
+      For previous versions it has to be enabled either with EnableNETAnalyzers or AnalysisLevel
+    -->
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<AnalysisLevel>latest</AnalysisLevel>
+		<AnalysisMode>AllEnabledByDefault</AnalysisMode>
+		<CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+	</PropertyGroup>
+  
+  <ItemGroup>
+    <None Include="..\..\$(PackageLicenseFile)" Pack="true" PackagePath=""/>
+    <None Include="..\..\$(PackageReadmeFile)" Pack="true" PackagePath=""/>
+  </ItemGroup>
+</Project>

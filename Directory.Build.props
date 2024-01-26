@@ -6,8 +6,9 @@
     <Authors>Selectorsvt</Authors>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/Selectorsvt/Unofficial.Microsoft.Extensions.DependencyInjection</RepositoryUrl>
+    <RepositoryUrl>https://github.com/Selectorsvt/Extended.Microsoft.Extensions.DependencyInjection</RepositoryUrl>
 	<PackageOutputPath>.\nupkg</PackageOutputPath>
+	<Version>1.0.1</Version>  
   </PropertyGroup>
 
 	<PropertyGroup>
